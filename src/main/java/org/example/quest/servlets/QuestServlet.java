@@ -48,10 +48,8 @@ public class QuestServlet extends HttpServlet {
         HttpSession session = req.getSession();
         Level nextLevel = (Level) session.getAttribute("level");
         String s = req.getParameter("answer");
-        System.out.println(s);
         if(StringUtils.equals(s,"pos")) {
             nextLevel.setLevel(nextLevel.getLevel() + 1);
-            System.out.println("Next Level: " + nextLevel.getLevel());
             session.setAttribute("level", nextLevel);
         } else if(StringUtils.equals(s,"res") || StringUtils.equals(s,"menu")) {
             nextLevel.setLevel(1);
